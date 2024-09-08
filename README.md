@@ -37,6 +37,12 @@ The following changes and additions are made to the original java code:
     boolean capitalize,
     boolean numerals,
     boolean symbols)
+
+  public static String modifyPassword(final String password,
+    boolean capitalize,
+    boolean numerals,
+    boolean symbols)
+
   ```
 
 # How to build
@@ -48,6 +54,62 @@ The following changes and additions are made to the original java code:
 ```
 
 # How to use
+
+## Maven projects
+
+The project is not in maven central yet. But it can be installed to your local
+maven repository. Please look at the script `./install_as_local_maven.sh1`. Use
+this script if you are on Linux or Mac. If you are on Windows, look at the
+script and run `mvn install:install-file` manually.
+
+Add the following dependency in your project's pom.xml
+
+```
+   <dependency>
+        <groupId>com.muquit.gpw</groupId>
+        <artifactId>gpw</artifactId>
+        <version>1.0.1</version>
+   </dependency>
+```
+The gpw-1.0.1.jar jar file file also available from the Releases page.
+
+# Examples
+
+Please look at TestGpw.java unit test file for complete examples.
+
+```
+    import com.muquit.gpw;
+
+    Gpw gpw = new Gpw();
+
+    int npw = 4;
+    int pwlen = 8;
+    List<String> passwords = gpw.generatePasswords(npw, pwlen);
+    for (String password: passwords)
+    {
+        logger.info(password);
+        String modified = GpwPasswordModifier.modifyPassword(password, true, true, true);
+        logger.info(" modified all: " + modified);
+
+        modified = GpwPasswordModifier.modifyPassword(password, true, false, false);
+        logger.info(" modified caps: " + modified);
+    }
+```
+
+Add at lease one upper case letter. The number depends on the length of the password.
+
+```
+    final String original = "password";
+
+    boolean capitalize = true;
+    boolean numerals = false;
+    boolean symbols = false;
+
+    String modified = GpwPasswordModifier.modifyPassword(original, true, false, false);
+    logger.info("Original: " + original + " Modified caps: " + modified);
+```
+
+Similarly numbers, symbols can be added to the password.
 
 # License
 

@@ -12,8 +12,8 @@ public class Gpw
 	private final static Logger logger = LoggerFactory.getLogger(Gpw.class);
 	/**
 	 * Generate a list of passphrases
-	 * @param npp
-	 * @param nWords
+	 * @param numberOfPassphrases
+	 * @param numberOfWords
 	 * @param wordLen
 	 * @return list of passphrases
 	 */
@@ -38,6 +38,11 @@ public class Gpw
 			passphrasesList.add(result);
 		}
 		return passphrasesList;
+	}
+	
+	public String generateOnePassphrase(final int numberOfWords, final int wordLen)
+	{
+		return generatePassphrases(1, numberOfWords, wordLen).get(0);
 	}
 
 	public List<String> generatePasswords(final int npw, final int pwl)
@@ -117,4 +122,15 @@ public class Gpw
 		return passwordList;
 	}
 	
+	/**
+	 * Return one password
+	 * @param passwordLength
+	 * @return the generated password
+	 * <p>
+	 * @author muquit@muquit.com - Sep 8, 2024
+	 */
+	public String generateOnePassword(final int passwordLength)
+	{
+		return generatePasswords(1, passwordLength).get(0);
+	}
 }

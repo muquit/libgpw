@@ -12,7 +12,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.muquit.gpw.Gpw;
-import com.muquit.gpw.PasswordModifier;
+import com.muquit.gpw.GpwPasswordModifier;
 
 public class TestGpw
 {
@@ -57,7 +57,7 @@ public class TestGpw
 		String original = "password";
 		for (int i=0; i < 100; i++)
 		{
-			String modified = PasswordModifier.modifyPassword(original, true, true, true);
+			String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
 			logger.info("original=" + original + " Modified: " + modified);
 			assertNotEquals(original, modified);
 			assertTrue(containsUppercase(modified));
@@ -71,7 +71,7 @@ public class TestGpw
     public void testModifyPassword_OnlyCapitalize()
     {
         String original = "password";
-        String modified = PasswordModifier.modifyPassword(original, true, false, false);
+        String modified = GpwPasswordModifier.modifyPassword(original, true, false, false);
 
         assertNotEquals(original, modified);
         assertTrue(containsUppercase(modified));
@@ -83,7 +83,7 @@ public class TestGpw
     @Test
     public void testModifyPassword_NumeralsAndSymbols() {
         String original = "password";
-        String modified = PasswordModifier.modifyPassword(original, false, true, true);
+        String modified = GpwPasswordModifier.modifyPassword(original, false, true, true);
 
         assertNotEquals(original, modified);
         assertFalse(containsUppercase(modified));
@@ -96,7 +96,7 @@ public class TestGpw
     public void testModifyPassword_AllCaps()
     {
         String original = "ALLCAPS";
-        String modified = PasswordModifier.modifyPassword(original, true, true, true);
+        String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
 
         assertNotEquals(original, modified);
         assertTrue(containsUppercase(modified));
@@ -109,7 +109,7 @@ public class TestGpw
     public void testModifyPassword_AlreadyMeetsRequirements()
     {
         String original = "P@ssw0rd";
-        String modified = PasswordModifier.modifyPassword(original, true, true, true);
+        String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
 
         assertEquals(original, modified);
     }    

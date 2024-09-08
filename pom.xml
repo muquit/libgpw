@@ -5,6 +5,21 @@
   <version>1.0.1</version>
   <name>gpw</name>
   <description>Generate pronounceable passwords</description>
+
+  <developers>
+      <developer>
+        <name>Muhammad Muquit</name>
+        <email>muquit@gmail.com</email>
+        <organization>muquit.com</organization>
+        <organizationUrl>https://www.muquit.com</organizationUrl>
+      </developer>
+  </developers>
+
+  <scm>
+     <connection>scm:git:git://github.com/muquit/gpw.git</connection>
+     <developerConnection>scm:git:ssh://github.com:muquit/gpw.git</developerConnection>
+     <url>https://github.com/muquit/gpw</url>
+  </scm>
   
   <dependencies>
     <dependency>

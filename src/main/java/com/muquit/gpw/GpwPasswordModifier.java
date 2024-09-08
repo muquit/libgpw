@@ -10,9 +10,9 @@ import org.slf4j.LoggerFactory;
  * Add uppercase, numbers, symbols to a word
  * @author muquit@muquit.com - Sep 8, 2024
  */
-public class PasswordModifier
+public class GpwPasswordModifier
 {
-	private final static Logger logger = LoggerFactory.getLogger(PasswordModifier.class);
+	private final static Logger logger = LoggerFactory.getLogger(GpwPasswordModifier.class);
 	// use a mostly used subset
 	private static final String SYMBOLS = "!@#$%^&*()+";
 
@@ -21,6 +21,17 @@ public class PasswordModifier
 	private static final double MAX_ELEMENT_PERCENTAGE = 0.25;
 	private static final int MAX_ELEMENT_COUNT = 5;
 
+	/**
+	 * Modify a password to capitalize, add numbers, symbols
+	 * 
+	 * @param password
+	 * @param capitalize 
+	 * @param numerals
+	 * @param symbols
+	 * @return The modifield password
+	 * <p>
+	 * @author muquit@muquit.com - Sep 8, 2024
+	 */
 	public static String modifyPassword(final String password, boolean capitalize, boolean numerals, boolean symbols)
 	{
 		StringBuilder modifiedPassword = new StringBuilder(password);

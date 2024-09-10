@@ -8,6 +8,7 @@ import org.slf4j.LoggerFactory;
 
 /**
  * Add uppercase, numbers, symbols to a word
+ * 
  * @author muquit@muquit.com - Sep 8, 2024
  */
 public class GpwPasswordModifier
@@ -25,11 +26,11 @@ public class GpwPasswordModifier
 	 * Modify a password to capitalize, add numbers, symbols
 	 * 
 	 * @param password
-	 * @param capitalize 
+	 * @param capitalize
 	 * @param numerals
 	 * @param symbols
 	 * @return The modifield password
-	 * <p>
+	 *         <p>
 	 * @author muquit@muquit.com - Sep 8, 2024
 	 */
 	public static String modifyPassword(final String password, boolean capitalize, boolean numerals, boolean symbols)
@@ -50,7 +51,7 @@ public class GpwPasswordModifier
 		return modifiedPassword.toString();
 	}
 
-	private static int calculateRequiredElements(int passwordLength, boolean optionEnabled)
+	public static int calculateRequiredElements(int passwordLength, boolean optionEnabled)
 	{
 		if (!optionEnabled)
 			return 0;
@@ -83,8 +84,45 @@ public class GpwPasswordModifier
 		return Pattern.compile(".*[" + Pattern.quote(SYMBOLS) + "].*").matcher(str).matches();
 	}
 
-	private static void addRequiredCapitals(StringBuilder password, int count)
+	public static void addRequiredCapitals(StringBuilder password, int count)
 	{
+		logger.info("count: " + count);
+		int added = 0;
+
+		while (added < count)
+		{
+			int position = findAvailablePosition(password, true);
+			if (position != -1)
+			{
+				password.setCharAt(position, Character.toUpperCase(password.charAt(position)));
+				added++;
+			} else
+			{
+				// If no lowercase letter is found, capitalize the first
+				// uncapitalized letter
+				boolean capitalized = false;
+				for (int i = 0; i < password.length(); i++)
+				{
+					if (Character.isLetter(password.charAt(i)) && !Character.isUpperCase(password.charAt(i)))
+					{
+						password.setCharAt(i, Character.toUpperCase(password.charAt(i)));
+						added++;
+						capitalized = true;
+						break;
+					}
+				}
+				// If we couldn't capitalize any more letters, break the loop
+				if (!capitalized)
+				{
+					break;
+				}
+			}
+		}
+	}
+
+	public static void addRequiredCapitalsOld(StringBuilder password, int count)
+	{
+		logger.info("count: " + count);
 		if (count > 0 && !containsUppercase(password.toString()))
 		{
 			int position = findAvailablePosition(password, true);
@@ -106,7 +144,22 @@ public class GpwPasswordModifier
 		}
 	}
 
-	private static void addRequiredNumerals(StringBuilder password, int count)
+	public static void addRequiredNumerals(StringBuilder password, int count) {
+	    int added = 0;
+	    while (added < count) {
+	        int position = findAvailablePosition(password, false);
+	        if (position != -1) {
+	            char numeral = (char) ('0' + random.nextInt(10));
+	            password.setCharAt(position, numeral);
+	            added++;
+	        } else {
+	            System.out.println("Debug: No available position for adding numeral");
+	            break;
+	        }
+	    }
+	}
+
+	public static void addRequiredNumeralsOld(StringBuilder password, int count)
 	{
 		for (int i = 0; i < count; i++)
 		{
@@ -125,8 +178,21 @@ public class GpwPasswordModifier
 			}
 		}
 	}
-
-	private static void addRequiredSymbols(StringBuilder password, int count)
+	public static void addRequiredSymbols(StringBuilder password, int count) {
+	    int added = 0;
+	    while (added < count) {
+	        int position = findAvailablePosition(password, false);
+	        if (position != -1) {
+	            char symbol = SYMBOLS.charAt(random.nextInt(SYMBOLS.length()));
+	            password.setCharAt(position, symbol);
+	            added++;
+	        } else {
+	            System.out.println("Debug: No available position for adding symbol");
+	            break;
+	        }
+	    }
+	}
+	public static void addRequiredSymbolsOld(StringBuilder password, int count)
 	{
 		for (int i = 0; i < count; i++)
 		{

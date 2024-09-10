@@ -87,9 +87,12 @@ public class GpwPasswordModifier
 	public static void addRequiredCapitals(StringBuilder password, int count)
 	{
 		logger.info("count: " + count);
-		int added = 0;
+		int currentUppercaseCount = countUppercaseCharacters(password);
+		int needed = Math.max(0, count - currentUppercaseCount);
 
-		while (added < count)
+		int added = 0;
+//		while (added < count)
+		while (added < needed)
 		{
 			int position = findAvailablePosition(password, true);
 			if (position != -1)
@@ -144,19 +147,28 @@ public class GpwPasswordModifier
 		}
 	}
 
-	public static void addRequiredNumerals(StringBuilder password, int count) {
-	    int added = 0;
-	    while (added < count) {
-	        int position = findAvailablePosition(password, false);
-	        if (position != -1) {
-	            char numeral = (char) ('0' + random.nextInt(10));
-	            password.setCharAt(position, numeral);
-	            added++;
-	        } else {
-	            System.out.println("Debug: No available position for adding numeral");
-	            break;
-	        }
-	    }
+	public static void addRequiredNumerals(StringBuilder password, int count)
+	{
+
+		logger.info("count: " + count);
+		int currentNumerals = countNumerals(password);
+		int needed = Math.max(0, count - currentNumerals);
+
+		int added = 0;
+		while (added < needed)
+		{
+			int position = findAvailablePosition(password, false);
+			if (position != -1)
+			{
+				char numeral = (char) ('0' + random.nextInt(10));
+				password.setCharAt(position, numeral);
+				added++;
+			} else
+			{
+				System.out.println("Debug: No available position for adding numeral");
+				break;
+			}
+		}
 	}
 
 	public static void addRequiredNumeralsOld(StringBuilder password, int count)
@@ -178,20 +190,30 @@ public class GpwPasswordModifier
 			}
 		}
 	}
-	public static void addRequiredSymbols(StringBuilder password, int count) {
-	    int added = 0;
-	    while (added < count) {
-	        int position = findAvailablePosition(password, false);
-	        if (position != -1) {
-	            char symbol = SYMBOLS.charAt(random.nextInt(SYMBOLS.length()));
-	            password.setCharAt(position, symbol);
-	            added++;
-	        } else {
-	            System.out.println("Debug: No available position for adding symbol");
-	            break;
-	        }
-	    }
+
+	public static void addRequiredSymbols(StringBuilder password, int count)
+	{
+		logger.info("count: " + count);
+		int currentSymbols = countSymbols(password);
+		int needed = Math.max(0, count - currentSymbols);
+
+		int added = 0;
+		while (added < needed)
+		{
+			int position = findAvailablePosition(password, false);
+			if (position != -1)
+			{
+				char symbol = SYMBOLS.charAt(random.nextInt(SYMBOLS.length()));
+				password.setCharAt(position, symbol);
+				added++;
+			} else
+			{
+				System.out.println("Debug: No available position for adding symbol");
+				break;
+			}
+		}
 	}
+
 	public static void addRequiredSymbolsOld(StringBuilder password, int count)
 	{
 		for (int i = 0; i < count; i++)
@@ -281,5 +303,38 @@ public class GpwPasswordModifier
 	{
 		int position = random.nextInt(password.length());
 		password.setCharAt(position, SYMBOLS.charAt(random.nextInt(SYMBOLS.length())));
+	}
+
+	private static int countUppercaseCharacters(StringBuilder password)
+	{
+		int count = 0;
+		for (int i = 0; i < password.length(); i++)
+		{
+			if (Character.isUpperCase(password.charAt(i)))
+			{
+				count++;
+			}
+		}
+		return count;
+	}
+	public static int countNumerals(StringBuilder password) {
+	    int count = 0;
+	    for (int i = 0; i < password.length(); i++) {
+	        if (Character.isDigit(password.charAt(i))) {
+	            count++;
+	        }
+	    }
+	    return count;
+	}
+
+	public static int countSymbols(StringBuilder password) {
+	    int count = 0;
+	    for (int i = 0; i < password.length(); i++) {
+	        char c = password.charAt(i);
+	        if (!Character.isLetterOrDigit(c)) {
+	            count++;
+	        }
+	    }
+	    return count;
 	}
 }

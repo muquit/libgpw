@@ -17,7 +17,7 @@ import com.muquit.gpw.GpwPasswordModifier;
 public class TestGpw
 {
 	private final static Logger logger = LoggerFactory.getLogger(TestGpw.class);
-	
+
 	@Test
 	public void testGeneratePassword()
 	{
@@ -29,9 +29,9 @@ public class TestGpw
 		{
 			logger.info(password);
 			assertEquals(8, password.length());
-			assertTrue(! containsUppercase(password));
-			assertTrue(! containsNumeral(password));
-			assertTrue(! containsSymbol(password));
+			assertTrue(!containsUppercase(password));
+			assertTrue(!containsNumeral(password));
+			assertTrue(!containsSymbol(password));
 		}
 	}
 
@@ -45,9 +45,9 @@ public class TestGpw
 		for (String p : pps)
 		{
 			logger.info(p);
-			assertTrue(! containsUppercase(p));
-			assertTrue(! containsNumeral(p));
-			assertTrue(! containsSymbol(p));
+			assertTrue(!containsUppercase(p));
+			assertTrue(!containsNumeral(p));
+			assertTrue(!containsSymbol(p));
 		}
 	}
 
@@ -55,7 +55,7 @@ public class TestGpw
 	public void testModifyPassword_AllOptions()
 	{
 		String original = "password";
-		for (int i=0; i < 100; i++)
+		for (int i = 0; i < 100; i++)
 		{
 			String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
 			logger.info("original=" + original + " Modified: " + modified);
@@ -66,75 +66,76 @@ public class TestGpw
 			assertEquals(original.length(), modified.length());
 		}
 	}
-	
-    @Test
-    public void testModifyPassword_OnlyCapitalize()
-    {
-        String original = "password";
-        String modified = GpwPasswordModifier.modifyPassword(original, true, false, false);
 
-        assertNotEquals(original, modified);
-        assertTrue(containsUppercase(modified));
-        assertFalse(containsNumeral(modified));
-        assertFalse(containsSymbol(modified));
-        assertEquals(original.length(), modified.length());
-    }	
-    
-    @Test
-    public void testModifyPassword_NumeralsAndSymbols() {
-        String original = "password";
-        String modified = GpwPasswordModifier.modifyPassword(original, false, true, true);
+	@Test
+	public void testModifyPassword_OnlyCapitalize()
+	{
+		String original = "password";
+		String modified = GpwPasswordModifier.modifyPassword(original, true, false, false);
 
-        assertNotEquals(original, modified);
-        assertFalse(containsUppercase(modified));
-        assertTrue(containsNumeral(modified));
-        assertTrue(containsSymbol(modified));
-        assertEquals(original.length(), modified.length());
-    }    
+		assertNotEquals(original, modified);
+		assertTrue(containsUppercase(modified));
+		assertFalse(containsNumeral(modified));
+		assertFalse(containsSymbol(modified));
+		assertEquals(original.length(), modified.length());
+	}
 
-    @Test
-    public void testModifyPassword_AllCaps()
-    {
-        String original = "ALLCAPS";
-        String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
+	@Test
+	public void testModifyPassword_NumeralsAndSymbols()
+	{
+		String original = "password";
+		String modified = GpwPasswordModifier.modifyPassword(original, false, true, true);
 
-        assertNotEquals(original, modified);
-        assertTrue(containsUppercase(modified));
-        assertTrue(containsNumeral(modified));
-        assertTrue(containsSymbol(modified));
-        assertEquals(original.length(), modified.length());
-    }    
-    
-    @Test
-    public void testModifyPassword_AlreadyMeetsRequirements()
-    {
-        String original = "P@ssw0rd";
-        String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
-        
-        logger.info("Original: " + original);
-        logger.info("Modified: " + modified);
+		assertNotEquals(original, modified);
+		assertFalse(containsUppercase(modified));
+		assertTrue(containsNumeral(modified));
+		assertTrue(containsSymbol(modified));
+		assertEquals(original.length(), modified.length());
+	}
 
-//        assertEquals(original, modified);
-    }    
-    
-    @Test
-    public void testCalculateRequiredElements()
-    {
-    	String p = "nkamentittatapelecomeldenolleddo";
-    	int n = GpwPasswordModifier.calculateRequiredElements(p.length(), true);
-    	logger.info("plan: " + p.length() +  " n: " + n);
+	@Test
+	public void testModifyPassword_AllCaps()
+	{
+		String original = "ALLCAPS";
+		String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
+
+		assertNotEquals(original, modified);
+		assertTrue(containsUppercase(modified));
+		assertTrue(containsNumeral(modified));
+		assertTrue(containsSymbol(modified));
+		assertEquals(original.length(), modified.length());
+	}
+
+	@Test
+	public void testModifyPassword_AlreadyMeetsRequirements()
+	{
+		String original = "P@ssw0rd";
+		String modified = GpwPasswordModifier.modifyPassword(original, true, true, true);
+
+		logger.info("Original: " + original);
+		logger.info("Modified: " + modified);
+
+		assertEquals(original, modified);
+	}
+
+	@Test
+	public void testCalculateRequiredElements()
+	{
+		String p = "nkamentittatapelecomeldenolleddo";
+		int n = GpwPasswordModifier.calculateRequiredElements(p.length(), true);
+		logger.info("plan: " + p.length() + " n: " + n);
 		StringBuilder pass = new StringBuilder(p);
 		GpwPasswordModifier.addRequiredCapitals(pass, n);
 		logger.info("pass: " + pass.toString());
 
 		pass = new StringBuilder(p);
-	    GpwPasswordModifier.addRequiredNumerals(pass,n);
+		GpwPasswordModifier.addRequiredNumerals(pass, n);
 		logger.info("pass: " + pass.toString());
 
 		pass = new StringBuilder(p);
-	    GpwPasswordModifier.addRequiredSymbols(pass,n);
+		GpwPasswordModifier.addRequiredSymbols(pass, n);
 		logger.info("pass: " + pass.toString());
-    }
+	}
 
 	private boolean containsUppercase(String str)
 	{

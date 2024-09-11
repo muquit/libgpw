@@ -25,29 +25,28 @@ public class GpwPasswordModifier
 	/**
 	 * Modifies a given password based on specified criteria.
 	 *
-	 * @param password
-	 *            The original password to be modified.
-	 * @param capitalize
-	 *            If true, the method will capitalize the password.
-	 * @param numerals
-	 *            If true, the method will add numerals to the password.
-	 * @param symbols
-	 *            If true, the method will add symbols to the password.
+	 * @param password   The original password to be modified.
+	 * @param capitalize If true, the method will capitalize the password.
+	 * @param numerals   If true, the method will add numerals to the password.
+	 * @param symbols    If true, the method will add symbols to the password.
 	 * @return The modified password as a String.
 	 * 
-	 * @implNote This method uses the following constants to determine the
-	 *           number of characters added: - BASE_LENGTH: The minimum length
-	 *           of the password (8 characters). - MAX_ELEMENT_PERCENTAGE: The
-	 *           maximum percentage of the password that can be made up of added
-	 *           elements (25% or 0.25). - MAX_ELEMENT_COUNT: The maximum number
-	 *           of elements (capitalizations, numerals, or symbols) that can be
-	 *           added (5).
+	 * @implNote This method uses the following mechanism to determine the
+	 *   number of characters added: 
+     *   - The minimum length of the password (8 characters). 
+     *   - The maximum percentage of the password that can be made up of 
+     *     added  elements (25% or 0.25). 
+     *   - The maximum number of elements (capitalizations, numerals, or 
+     *      symbols) that can be  added (5).
 	 *
-	 *           The number of added characters is calculated based on these
-	 *           constants and the original password length, ensuring that the
-	 *           modifications do not exceed the defined limits.
+	 *   The number of added characters is calculated based on these
+	 *   constants and the original password length, ensuring that the
+	 *   modifications do not exceed the defined limits.
 	 */
-	public static String modifyPassword(final String password, boolean capitalize, boolean numerals, boolean symbols)
+	public static String modifyPassword(final String password,
+            boolean capitalize,
+            boolean numerals,
+            boolean symbols)
 	{
 		StringBuilder modifiedPassword = new StringBuilder(password);
 		int passwordLength = password.length();

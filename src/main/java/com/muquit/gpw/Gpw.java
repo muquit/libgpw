@@ -18,7 +18,8 @@ public class Gpw
 	* @param numberOfWords The number of words in each passphrase.
 	* @param wordLen The length of each word in the passphrases.
 	* @return A List of Strings, where each String is a generated passphrase.
-	* @throws IllegalArgumentException if any of the parameters are less than or equal to 0.
+	* @throws IllegalArgumentException if any of the parameters are less 
+    * than or equal to 0.
 	*/
 	public List<String> generatePassphrases(final int numberOfPassphrases,
 			final int numberOfWords,
@@ -63,7 +64,8 @@ public class Gpw
 	 * @param wordLen The length of each word in the passphrase.
 	 * @return A String representing the generated passphrase.
 	 * @throws IllegalArgumentException if numberOfWords is less than or equal to 0.
-	 * @throws IllegalArgumentException if wordLen is less than or equal to 0, with the message "Invalid word length".
+	 * @throws IllegalArgumentException if wordLen is less than or equal 
+     * to 0, with the message "Invalid word length".
 	 */
 	public String generateOnePassphrase(final int numberOfWords, final int wordLen)
 	{

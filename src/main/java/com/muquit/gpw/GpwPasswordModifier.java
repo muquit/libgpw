@@ -23,15 +23,29 @@ public class GpwPasswordModifier
 	private static final int MAX_ELEMENT_COUNT = 5;
 
 	/**
-	 * Modify a password to capitalize, add numbers, symbols
-	 * 
+	 * Modifies a given password based on specified criteria.
+	 *
 	 * @param password
+	 *            The original password to be modified.
 	 * @param capitalize
+	 *            If true, the method will capitalize the password.
 	 * @param numerals
+	 *            If true, the method will add numerals to the password.
 	 * @param symbols
-	 * @return The modifield password
-	 *         <p>
-	 * @author muquit@muquit.com - Sep 8, 2024
+	 *            If true, the method will add symbols to the password.
+	 * @return The modified password as a String.
+	 * 
+	 * @implNote This method uses the following constants to determine the
+	 *           number of characters added: - BASE_LENGTH: The minimum length
+	 *           of the password (8 characters). - MAX_ELEMENT_PERCENTAGE: The
+	 *           maximum percentage of the password that can be made up of added
+	 *           elements (25% or 0.25). - MAX_ELEMENT_COUNT: The maximum number
+	 *           of elements (capitalizations, numerals, or symbols) that can be
+	 *           added (5).
+	 *
+	 *           The number of added characters is calculated based on these
+	 *           constants and the original password length, ensuring that the
+	 *           modifications do not exceed the defined limits.
 	 */
 	public static String modifyPassword(final String password, boolean capitalize, boolean numerals, boolean symbols)
 	{
@@ -91,7 +105,6 @@ public class GpwPasswordModifier
 		int needed = Math.max(0, count - currentUppercaseCount);
 
 		int added = 0;
-//		while (added < count)
 		while (added < needed)
 		{
 			int position = findAvailablePosition(password, true);
@@ -114,34 +127,10 @@ public class GpwPasswordModifier
 						break;
 					}
 				}
-				// If we couldn't capitalize any more letters, break the loop
+				// if we couldn't capitalize any more letters, break the loop
 				if (!capitalized)
 				{
 					break;
-				}
-			}
-		}
-	}
-
-	public static void addRequiredCapitalsOld(StringBuilder password, int count)
-	{
-		logger.info("count: " + count);
-		if (count > 0 && !containsUppercase(password.toString()))
-		{
-			int position = findAvailablePosition(password, true);
-			if (position != -1)
-			{
-				password.setCharAt(position, Character.toUpperCase(password.charAt(position)));
-			} else
-			{
-				// if no lowercase letter is found, capitalize the first letter
-				for (int i = 0; i < password.length(); i++)
-				{
-					if (Character.isLetter(password.charAt(i)))
-					{
-						password.setCharAt(i, Character.toUpperCase(password.charAt(i)));
-						break;
-					}
 				}
 			}
 		}
@@ -171,26 +160,6 @@ public class GpwPasswordModifier
 		}
 	}
 
-	public static void addRequiredNumeralsOld(StringBuilder password, int count)
-	{
-		for (int i = 0; i < count; i++)
-		{
-			if (!containsNumeral(password.toString()))
-			{
-				int position = findAvailablePosition(password, false);
-				if (position != -1)
-				{
-					char numeral = (char) ('0' + random.nextInt(10));
-					password.setCharAt(position, numeral);
-				} else
-				{
-					System.out.println("Debug: No available position for adding numeral");
-					break;
-				}
-			}
-		}
-	}
-
 	public static void addRequiredSymbols(StringBuilder password, int count)
 	{
 		logger.info("count: " + count);
@@ -210,26 +179,6 @@ public class GpwPasswordModifier
 			{
 				System.out.println("Debug: No available position for adding symbol");
 				break;
-			}
-		}
-	}
-
-	public static void addRequiredSymbolsOld(StringBuilder password, int count)
-	{
-		for (int i = 0; i < count; i++)
-		{
-			if (!containsSymbol(password.toString()))
-			{
-				int position = findAvailablePosition(password, false);
-				if (position != -1)
-				{
-					char symbol = SYMBOLS.charAt(random.nextInt(SYMBOLS.length()));
-					password.setCharAt(position, symbol);
-				} else
-				{
-					System.out.println("Debug: No available position for adding symbol");
-					break;
-				}
 			}
 		}
 	}
@@ -317,24 +266,31 @@ public class GpwPasswordModifier
 		}
 		return count;
 	}
-	public static int countNumerals(StringBuilder password) {
-	    int count = 0;
-	    for (int i = 0; i < password.length(); i++) {
-	        if (Character.isDigit(password.charAt(i))) {
-	            count++;
-	        }
-	    }
-	    return count;
+
+	public static int countNumerals(StringBuilder password)
+	{
+		int count = 0;
+		for (int i = 0; i < password.length(); i++)
+		{
+			if (Character.isDigit(password.charAt(i)))
+			{
+				count++;
+			}
+		}
+		return count;
 	}
 
-	public static int countSymbols(StringBuilder password) {
-	    int count = 0;
-	    for (int i = 0; i < password.length(); i++) {
-	        char c = password.charAt(i);
-	        if (!Character.isLetterOrDigit(c)) {
-	            count++;
-	        }
-	    }
-	    return count;
+	public static int countSymbols(StringBuilder password)
+	{
+		int count = 0;
+		for (int i = 0; i < password.length(); i++)
+		{
+			char c = password.charAt(i);
+			if (!Character.isLetterOrDigit(c))
+			{
+				count++;
+			}
+		}
+		return count;
 	}
 }

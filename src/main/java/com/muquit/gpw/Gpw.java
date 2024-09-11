@@ -10,17 +10,33 @@ import org.slf4j.LoggerFactory;
 public class Gpw
 {
 	private final static Logger logger = LoggerFactory.getLogger(Gpw.class);
-	/**
-	 * Generate a list of passphrases
-	 * @param numberOfPassphrases
-	 * @param numberOfWords
-	 * @param wordLen
-	 * @return list of passphrases
-	 */
+
+   /**
+	* Generates a list of passphrases based on specified criteria.
+	*
+	* @param numberOfPassphrases The number of passphrases to generate.
+	* @param numberOfWords The number of words in each passphrase.
+	* @param wordLen The length of each word in the passphrases.
+	* @return A List of Strings, where each String is a generated passphrase.
+	* @throws IllegalArgumentException if any of the parameters are less than or equal to 0.
+	*/
 	public List<String> generatePassphrases(final int numberOfPassphrases,
 			final int numberOfWords,
 			final int wordLen)
 	{
+		if (numberOfPassphrases <= 0)
+		{
+			throw new IllegalArgumentException("Invalid number of passphrases");
+		}
+		if (numberOfWords <= 0)
+		{
+			throw new IllegalArgumentException("Invalid number of words");
+		}
+		if (wordLen <= 0)
+		{
+			throw new IllegalArgumentException("Invalid word length");
+		}
+
 		List<String> passphrasesList = new ArrayList<String>();
 		for (int i = 0; i < numberOfPassphrases; i++)
 		{
@@ -39,14 +55,36 @@ public class Gpw
 		}
 		return passphrasesList;
 	}
-	
+
+	/**
+	 * Generates a single passphrase based on specified criteria.
+	 *
+	 * @param numberOfWords The number of words in the passphrase.
+	 * @param wordLen The length of each word in the passphrase.
+	 * @return A String representing the generated passphrase.
+	 * @throws IllegalArgumentException if numberOfWords is less than or equal to 0.
+	 * @throws IllegalArgumentException if wordLen is less than or equal to 0, with the message "Invalid word length".
+	 */
 	public String generateOnePassphrase(final int numberOfWords, final int wordLen)
 	{
 		return generatePassphrases(1, numberOfWords, wordLen).get(0);
 	}
 
+   /**
+	* Generates a list of passwords based on specified criteria.
+	*
+	* @param npw The number of passwords to generate.
+	* @param pwl The length of each generated password.
+	* @return A List of Strings, where each String is a generated password.
+	*
+	* @throws IllegalArgumentException if npw is less than or equal to 0,
+	*/	
 	public List<String> generatePasswords(final int npw, final int pwl)
 	{
+		if (pwl <= 0)
+		{
+			throw new IllegalArgumentException("Invalid password length");
+		}
 		final String alphabet = "abcdefghijklmnopqrstuvwxyz";
 		int c1, c2, c3;
 		long sum = 0;
@@ -121,14 +159,14 @@ public class Gpw
 		} // for pwnum
 		return passwordList;
 	}
-	
-	/**
-	 * Return one password
-	 * @param passwordLength
-	 * @return the generated password
-	 * <p>
-	 * @author muquit@muquit.com - Sep 8, 2024
-	 */
+
+   /**
+	* Generates a single password of the specified length.
+	*
+	* @param passwordLength The length of the password to generate.
+	* @return A String representing the generated password.
+	* @throws IllegalArgumentException if passwordLength is less than the minimum required length.
+	*/	
 	public String generateOnePassword(final int passwordLength)
 	{
 		return generatePasswords(1, passwordLength).get(0);

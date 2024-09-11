@@ -113,10 +113,42 @@ Similarly numbers, symbols can be added to the password.
 
 # License
 
-The original author allows to use the Java source with the following statements at https://www.multicians.org/thvv/gpw.html
+```
+MIT License
 
-    You are welcome to use the Java source of the password generator, if you
+Copyright (c) 2024 Muhammad Muquit
 
-    * Share your source with others freely
-    * Let me know you're using it
-    * Give me credit, and all the other pioneers, if you use the data or algorithms
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+```
+
+This project incorporates work covered by the following copyright and 
+permission notice:
+
+Random Password Generator by Tom Van Vleck
+
+As requested by the original author: 
+1. Users of this software are encouraged to share their source freely.
+2. Please inform the original author if you are using this software.
+3. Credit should be given to the original author and other pioneers for 
+the data and algorithms used.
+
+For full attribution and usage requirements, please see the NOTICE.txt 
+file in this repository.

@@ -166,7 +166,7 @@ As requested by the original author:
 3. Credit should be given to the original author and other pioneers for 
 the data and algorithms used.
 
-For full attribution and usage requirements, please see the [Notice.txt](Notice.txt)
+For full attribution and usage requirements, please see the [NOTICE.txt](NOTICE.txt)
 file in this repository.
 
 

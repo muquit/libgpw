@@ -67,24 +67,27 @@ The following changes and additions are made to the original java code:
 ## Maven projects
 
 The project is not in maven central yet. But it can be installed to your local
-maven repository. Please look at the script `./install_as_local_maven.sh1`. Use
+maven repository. Please look at the script 
+[install_as_local_maven.sh](install_as_local_maven.sh) Use
 this script if you are on Linux or Mac. If you are on Windows, look at the
 script and run `mvn install:install-file` manually.
 
-Add the following dependency in your project's pom.xml
+Then addd the following dependency in your project's pom.xml
 
 ```
    <dependency>
         <groupId>com.muquit.gpw</groupId>
         <artifactId>gpw</artifactId>
-        <version>1.0.1</version>
+        <version>1.0.2</version>
    </dependency>
 ```
-The gpw-1.0.1.jar jar file file also available from the Releases page.
+For non-maven projects, the gpw-1.0.2.jar jar file is also available from the 
+[Releases](https://github.com/muquit/gpw-httpd/releases) page.
 
 # Examples
 
-Please look at TestGpw.java unit test file for complete examples.
+Please look at 
+[TestGpw.java](src/test/java/test/com/muquit/gpw/TestGpw.java) unit test file for complete examples.
 
 ```
     import com.muquit.gpw;

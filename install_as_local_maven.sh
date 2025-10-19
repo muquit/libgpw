@@ -4,7 +4,7 @@
 # muquit@muquit.com Sep-08-2024 
 
 MYDIR=$(dirname $0)
-JAR_FILE="${MYDIR}/target/gpw-1.0.1.jar"
+JAR_FILE="${MYDIR}/target/gpw-1.0.2.jar"
 GROUP_ID="com.muquit.gpw"
 ARTIFACT_ID="gpw"
 VERSION="1.0.1"

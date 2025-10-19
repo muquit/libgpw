@@ -12,4 +12,7 @@ build:
 doc:
 	markdown-toc-go -i docs/README.md -o README.md -f
 
-.PHONY: all build doc
+push:
+	git push -u origin main
+
+.PHONY: all build doc push

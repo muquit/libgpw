@@ -17,4 +17,4 @@ Then addd the following dependency in your project's pom.xml
         <version>1.0.2</version>
    </dependency>
 ```
-For non-maven projects, down gpw-1.0.2.jar jar from here.
+For non-maven projects, download gpw-1.0.2.jar jar from here.

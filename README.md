@@ -9,7 +9,7 @@
 
 # Introduction
 
-A java library to generate "pronounceable" passwords. The code is taken from the java implementation mentioned in https://www.multicians.org/thvv/gpw.html. The original source for java applet is https://www.multicians.org/thvv/Gpw.java. The code is extracted from the source and created this maven project.
+`gpw` is java library to generate "pronounceable" passwords. The code is taken from the java implementation mentioned in https://www.multicians.org/thvv/gpw.html. The original source for java applet is https://www.multicians.org/thvv/Gpw.java. The code is extracted from the source and created this maven project.
 
 The original author of the code describes gpw in the comment at the top of [Gpw.java](https://www.multicians.org/thvv/Gpw.java) as follows:
 

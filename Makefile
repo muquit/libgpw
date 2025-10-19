@@ -12,7 +12,10 @@ build:
 doc:
 	markdown-toc-go -i docs/README.md -o README.md -f --glossary docs/glossary.txt
 
+release:
+	go-xbuild-go -release
+
 push:
 	git push -u origin main
 
-.PHONY: all build doc push
+.PHONY: all build doc push release

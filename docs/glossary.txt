@@ -1,0 +1,8 @@
+GPW_HTML    [Random Password Generator](https://www.multicians.org/thvv/gpw.html)
+GPW_CODE    [Gpw.java](https://www.multicians.org/thvv/Gpw.java)
+RELEASES    [Releases](https://github.com/muquit/gpw/releases)
+LICENSE     [LICENSE](LICENSE.txt)
+TEST_GPW    [TestGpw.java](src/test/java/test/com/muquit/gpw/TestGpw.java)
+CHANGELOG   [ChangeLog](ChangeLog.md)
+INSTALL_SCRIPT [install_as_local_maven.sh](install_as_local_maven.sh)
+NOTICE      [Notice.txt](Notice.txt)

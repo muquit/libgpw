@@ -1,6 +1,6 @@
 MIT License
 
-Copyright (c) 2024 Muhammad Muquit
+Copyright (c) 2025 Muhammad Muquit
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -33,5 +33,5 @@ As requested by the original author:
 3. Credit should be given to the original author and other pioneers for 
 the data and algorithms used.
 
-For full attribution and usage requirements, please see the NOTICE.txt 
+For full attribution and usage requirements, please see the Notice.txt 
 file in this repository.

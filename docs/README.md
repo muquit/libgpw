@@ -1,9 +1,13 @@
 # Introduction
 
-`gpw` is java library to generate "pronounceable" passwords. The code is taken from the java implementation mentioned in https://www.multicians.org/thvv/gpw.html. The original source for java applet is https://www.multicians.org/thvv/Gpw.java. The code is extracted from the source and created this maven project.
+`gpw` is java library to generate "pronounceable" passwords. The code is 
+taken from the java implementation mentioned in @GPW_HTML@ page.
+The original source for the java applet is @GPW_CODE@.
+The code is extracted from the source and created this maven project.
 
-The original author of the code describes gpw in the comment at the top of [Gpw.java](https://www.multicians.org/thvv/Gpw.java) as follows:
-
+The original author of the code describes gpw in the comment at the top of 
+@GPW_CODE@ as follows:
+```bash
     /* GPW - Generate pronounceable passwords
      This program uses statistics on the frequency of three-letter sequences
      in English to generate passwords.  The statistics are
@@ -16,7 +20,7 @@ The original author of the code describes gpw in the comment at the top of [Gpw.
     THVV 04/14/96 converted to Java
     THVV 07/30/97 fixed for Netscape 4.0
     */
-
+```
 # Changes
 
 The following changes and additions are made to the original java code:
@@ -73,12 +77,12 @@ Then addd the following dependency in your project's pom.xml
    </dependency>
 ```
 For non-maven projects, the gpw-1.0.2.jar jar file is also available from the 
-[Releases](https://github.com/muquit/gpw-httpd/releases) page.
+@RELEASES@ page
 
 # Examples
 
 Please look at 
-[TestGpw.java](src/test/java/test/com/muquit/gpw/TestGpw.java) unit test file for complete examples.
+@TEST_GPW@ unit test file for complete examples.
 
 ```
     import com.muquit.gpw;
@@ -116,42 +120,4 @@ Similarly numbers, symbols can be added to the password.
 
 # License
 
-```
-MIT License
-
-Copyright (c) 2024 Muhammad Muquit
-
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
-
----
-```
-
-This project incorporates work covered by the following copyright and 
-permission notice:
-
-Random Password Generator by Tom Van Vleck
-
-As requested by the original author: 
-1. Users of this software are encouraged to share their source freely.
-2. Please inform the original author if you are using this software.
-3. Credit should be given to the original author and other pioneers for 
-the data and algorithms used.
-
-For full attribution and usage requirements, please see the NOTICE.txt 
-file in this repository.
+Lice is mit please look at @LICENSE@ for details

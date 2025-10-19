@@ -1,12 +1,3 @@
-## Table Of Contents
-- [Introduction](#introduction)
-- [Changes](#changes)
-- [How to build](#how-to-build)
-- [How to use](#how-to-use)
-  - [Maven projects](#maven-projects)
-- [Examples](#examples)
-- [License](#license)
-
 # Introduction
 
 A java library to generate "pronounceable" passwords. The code is taken from the java implementation mentioned in https://www.multicians.org/thvv/gpw.html. The original source for java applet is https://www.multicians.org/thvv/Gpw.java. The code is extracted from the source and created this maven project.
@@ -161,6 +152,3 @@ the data and algorithms used.
 
 For full attribution and usage requirements, please see the NOTICE.txt 
 file in this repository.
-
----
-<sub>TOC is created by https://github.com/muquit/markdown-toc-go on Oct-19-2025</sub>

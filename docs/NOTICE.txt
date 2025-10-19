@@ -1,0 +1,15 @@
+This project includes code derived from "Random Password Generator by
+Tom Van Vleck, URL: https://www.multicians.org/thvv/tvv-home.html?1
+
+The original code can be found at https://www.multicians.org/thvv/gpw.html
+
+As requested by the original author, if you use this code, please:
+
+1. Share your source with others freely
+
+2. Let the original author know you're using it. Use authors web form at
+   https://multicians.org/cgi-sys/cgiwrap/thvv/squirnet.cgi
+
+3. Give credit to the original author and other pioneers for the data and 
+algorithms used
+

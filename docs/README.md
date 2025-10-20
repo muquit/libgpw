@@ -41,12 +41,6 @@ The following changes and additions are made to the original java code:
     boolean capitalize,
     boolean numerals,
     boolean symbols)
-
-  public static String modifyPassword(final String password,
-    boolean capitalize,
-    boolean numerals,
-    boolean symbols)
-
   ```
 
 # How to build
@@ -57,7 +51,7 @@ The following changes and additions are made to the original java code:
     mvn test
 ```
 
-The jar fiel `gpw-1.0.2.jar` will be created in `./target` directory
+The jar file `gpw-1.0.2.jar` will be created in `./target` directory
 
 # How to use
 

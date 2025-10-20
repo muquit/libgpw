@@ -66,16 +66,24 @@ The following changes and additions are made to the original java code:
     mvn test
 ```
 
+The jar fiel `gpw-1.0.2.jar` will be created in `./target` directory
+
 # How to use
 
 ## Maven projects
 
 The project is not in maven central yet. But it can be installed to your local
-maven repository. Please look at the script 
-[install_as_local_maven.sh](install_as_local_maven.sh) Use
-this script if you are on Linux or Mac. If you are on Windows, look at the
-script and run `mvn install:install-file` manually.
+maven repository.  To install it to your local maven repo, do the following:
 
+```bash
+mvn install:install-file \
+   -Dfile=./target/gpw-1.0.2.jar \
+   -DgroupId=com.muquit.gpw \
+   -DartifactId=gpw \
+   -Dversion=1.0.2 \
+   -Dpackaging=jar \
+   -DgeneratePom=true
+```
 Then addd the following dependency in your project's pom.xml
 
 ```
@@ -85,8 +93,8 @@ Then addd the following dependency in your project's pom.xml
         <version>1.0.2</version>
    </dependency>
 ```
-For non-maven projects, the gpw-1.0.2.jar jar file is also available from the 
-[Releases](https://github.com/muquit/gpw/releases) page
+For non-maven projects, the `gpw-1.0.2.jar` jar file is available from the 
+[Releases](https://github.com/muquit/gpw/releases) page.
 
 # Examples
 

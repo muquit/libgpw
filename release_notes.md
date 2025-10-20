@@ -18,7 +18,7 @@ mvn install:install-file \
 
 Then addd the following dependency in your project's pom.xml
 
-```
+```bash
    <dependency>
         <groupId>com.muquit.gpw</groupId>
         <artifactId>gpw</artifactId>

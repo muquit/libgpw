@@ -31,7 +31,7 @@ public class GpwPasswordModifier
 	 * @param symbols    If true, the method will add symbols to the password.
 	 * @return The modified password as a String.
 	 * 
-	 * @implNote This method uses the following mechanism to determine the
+	 * This method uses the following mechanism to determine the
 	 *   number of characters added: 
      *   - The minimum length of the password (8 characters). 
      *   - The maximum percentage of the password that can be made up of 

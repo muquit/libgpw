@@ -11,6 +11,11 @@ build:
 	mvn test
 	cd bin && ln -s ../target/gwtp-$(VERSION).jar
 
+deploy-to-central:
+	# Check the VERSION in pom.xml matches $(VERSION) in the Makefile
+	# check ~/.me/settings.xml has the correct Sonatype credentials and GPG passphrase
+	mvn clean deploy
+
 # https://github.com/muquit/markdown-toc-go
 doc:
 	markdown-toc-go -i docs/README.md -o README.md -f --glossary docs/glossary.txt

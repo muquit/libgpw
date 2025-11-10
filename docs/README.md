@@ -30,18 +30,20 @@ The following changes and additions are made to the original java code:
 - Uses `SecureRandom()` instead of `Random()`
 - The following APIs are added
 
-  ```
+```
   public List<String> generatePasswords(final int numberOfPasswords,
       final int passwordLength)
-
+```    
+```
   public List<String> generatePassphrases(final int numberOfPassphrases,
       final int numberOfWords, final int wordLength)
-
+```
+```
   public static String modifyPassword(final String password,
     boolean capitalize,
     boolean numerals,
     boolean symbols)
-  ```
+```
 
 # How to build
 

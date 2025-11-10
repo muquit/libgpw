@@ -80,6 +80,8 @@ Then addd the following dependency in your project's pom.xml
         <version>1.0.2</version>
    </dependency>
 ```
+This technique can be used for any maven projectes.
+
 For non-maven projects, the `gpw-1.0.2.jar` jar file is available from the 
 @RELEASES@ page.
 

@@ -16,7 +16,7 @@ mvn install:install-file \
    -DgeneratePom=true
 ```
 
-Then addd the following dependency in your project's pom.xml
+Then add the following dependency in your project's pom.xml
 
 ```bash
    <dependency>

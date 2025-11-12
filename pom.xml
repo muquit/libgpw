@@ -6,6 +6,11 @@
   <name>gpw</name>
   <description>Generate pronounceable passwords</description>
 
+<properties>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+</properties>
+
   <licenses>
         <license>
             <name>MIT License</name>

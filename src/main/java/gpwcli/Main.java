@@ -12,9 +12,16 @@ import picocli.CommandLine;
 import picocli.CommandLine.Command;
 import picocli.CommandLine.Option;
 
+/*
+ * This code in this file is created by Claude Sonnet 4.5.
+ * I just created the prompt what I want, like what cli lib to
+ * use, what the flags should be etc.
+ * This is not my code but it works the way I want.
+ */
+
 @Command(name = "gpw-cli", 
          mixinStandardHelpOptions = true, 
-         version = "gpw-cli 1.0",
+         version = "gpw-cli 1.0.1",
          description = "Generate pronounceable passwords")
 public class Main implements Callable<Integer>
 {

@@ -9,7 +9,7 @@ build:
 	mvn clean install
 	mvn clean package
 	mvn test
-	cd bin && ln -s ../target/gwtp-$(VERSION).jar
+	cd bin && ln -s ../target/gpw-$(VERSION).jar
 
 deploy-to-central:
 	# Check the VERSION in pom.xml matches $(VERSION) in the Makefile

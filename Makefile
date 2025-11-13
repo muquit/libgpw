@@ -6,7 +6,7 @@ all: build doc
 build:
 	mkdir -p bin
 	rm -f bin/*
-	mvn clean install
+	mvn clean install -Dgpg.skip=true
 	mvn clean package
 	mvn test
 	cd bin && ln -s ../target/gpw-$(VERSION).jar

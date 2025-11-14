@@ -91,6 +91,9 @@ cd ..
 # Copy standalone JAR to bin directory
 cp "$JAR_FILE" "bin/"
 
+# Remove the staging directory after creating archives
+rm -rf "$RELEASE_DIR"
+
 echo ""
 echo "✓ Release archives created successfully!"
 echo ""

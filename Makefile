@@ -13,7 +13,7 @@ build:
 
 deploy-to-central:
 	# Check the VERSION in pom.xml matches $(VERSION) in the Makefile
-	# check ~/.me/settings.xml has the correct Sonatype credentials and GPG passphrase
+	# check ~/.m2/settings.xml has the correct Sonatype credentials and GPG passphrase
 	mvn clean deploy -Prelease
 
 # https://github.com/muquit/markdown-toc-go
@@ -27,3 +27,6 @@ push:
 	git push -u origin main
 
 .PHONY: all build doc push release
+
+clean:
+	mvn clean

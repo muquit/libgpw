@@ -7,7 +7,7 @@
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 
 # Find the gpw jar file
-JAR_FILE="$SCRIPT_DIR/gpw-1.0.2.jar"
+JAR_FILE="$SCRIPT_DIR/libgpw-1.0.3.jar"
 
 # Check if jar exists
 if [ ! -f "$JAR_FILE" ]; then

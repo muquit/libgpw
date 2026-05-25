@@ -4,11 +4,12 @@
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 
   <modelVersion>4.0.0</modelVersion>
-  <groupId>com.muquit.gpw</groupId>
-  <artifactId>gpw</artifactId>
-  <version>1.0.2</version>
-  <name>gpw</name>
+  <groupId>com.muquit.libgpw</groupId>
+  <artifactId>libgpw</artifactId>
+  <version>1.0.3</version>
+  <name>libgpw</name>
   <description>Generate pronounceable passwords</description>
+  <url>https://github.com/muquit/libgpw</url>
 
   <!-- use jdk 11 -->
   <properties>
@@ -38,9 +39,9 @@
   </developers>
 
   <scm>
-    <connection>scm:git:git://github.com/muquit/gpw.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com/muquit/gpw.git</developerConnection>
-    <url>https://github.com/muquit/gpw</url>
+    <connection>scm:git:git://github.com/muquit/libgpw.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/muquit/libgpw.git</developerConnection>
+    <url>https://github.com/muquit/libgpw</url>
   </scm>
 
   <distributionManagement>
@@ -111,7 +112,7 @@
                   <mainClass>gpwcli.Main</mainClass>
                 </transformer>
               </transformers>
-              <finalName>gpw-${project.version}</finalName>
+              <finalName>libgpw-${project.version}</finalName>
             </configuration>
           </execution>
         </executions>
@@ -150,7 +151,7 @@
             <extensions>true</extensions>
             <configuration>
               <publishingServerId>central</publishingServerId>
-              <autoPublish>false</autoPublish> <!-- do not auto publish -->
+              <autoPublish>true</autoPublish>
             </configuration>
           </plugin>
         </plugins>

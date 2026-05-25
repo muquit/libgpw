@@ -9,7 +9,7 @@
 
 # Introduction
 
-`gpw` is java library to generate "pronounceable" passwords. The code is 
+`libgpw` is java library to generate "pronounceable" passwords. The code is 
 taken from the java implementation mentioned in [Random Password Generator](https://www.multicians.org/thvv/gpw.html) page.
 The original source for the java applet is [Gpw.java](https://www.multicians.org/thvv/Gpw.java).
 The code is extracted from the source and created this maven project.
@@ -39,20 +39,13 @@ The following changes and additions are made to the original java code:
 - Uses `SecureRandom()` instead of `Random()`
 - The following APIs are added
 
-```
-  public List<String> generatePasswords(final int numberOfPasswords,
-      final int passwordLength)
-```    
-```
-  public List<String> generatePassphrases(final int numberOfPassphrases,
-      final int numberOfWords, final int wordLength)
-```
-```
-  public static String modifyPassword(final String password,
-    boolean capitalize,
-    boolean numerals,
-    boolean symbols)
-```
+| API | Description |
+|-----|-------------|
+| `generatePasswords(int numberOfPasswords, int passwordLength)` | Generates a list of random passwords. Takes the number of passwords to generate and the desired length of each password. Returns a list of pronounceable passwords that are easier to remember than completely random character strings. |
+| `generatePassphrases(int numberOfPassphrases, int numberOfWords, int wordLength)` | Generates a list of random passphrases. Takes the number of passphrases to generate, the number of words per passphrase, and the desired length of each word. Returns a list of multi-word passphrases that are more secure and memorable than single passwords. |
+| `modifyPassword(String password, boolean capitalize, boolean numerals, boolean symbols)` | Modifies an existing password by adding complexity. Takes a password string and boolean flags to optionally add capitalization, numerals (0-9), and/or symbols (special characters). Returns the modified password with the requested enhancements to increase strength and meet password policy requirements. This is a static utility method. |
+
+These APIs provide the core functionality for both the CLI tool and Swing GUI, allowing users to generate secure, pronounceable passwords and passphrases with customizable parameters.
 
 # How to build
 
@@ -62,7 +55,7 @@ The following changes and additions are made to the original java code:
     mvn test
 ```
 
-The jar file `gpw-1.0.2.jar` will be created in `./target` directory
+The jar file `libgpw-1.0.3.jar` will be created in `./target` directory
 
 # How to use
 
@@ -73,10 +66,10 @@ maven repository.  To install it to your local maven repo, do the following:
 
 ```bash
 mvn install:install-file \
-   -Dfile=./target/gpw-1.0.2.jar \
-   -DgroupId=com.muquit.gpw \
-   -DartifactId=gpw \
-   -Dversion=1.0.2 \
+   -Dfile=./target/libgpw-1.0.3.jar \
+   -DgroupId=com.muquit.libgpw \
+   -DartifactId=libgpw \
+   -Dversion=1.0.3 \
    -Dpackaging=jar \
    -DgeneratePom=true
 ```
@@ -84,15 +77,15 @@ Then addd the following dependency in your project's pom.xml
 
 ```
    <dependency>
-        <groupId>com.muquit.gpw</groupId>
-        <artifactId>gpw</artifactId>
-        <version>1.0.2</version>
+        <groupId>com.muquit.libgpw</groupId>
+        <artifactId>libgpw</artifactId>
+        <version>1.0.3</version>
    </dependency>
 ```
 This technique can be used for any maven projects with source, e.g. if you
 would like to modify the code and try out locally.
 
-For non-maven projects, the `gpw-1.0.2.jar` jar file is available from the 
+For non-maven projects, the `libgpw-1.0.3.jar` jar file is available from the 
 [Releases](https://github.com/muquit/gpw/releases) page.
 
 # Examples
@@ -101,7 +94,7 @@ Please look at
 [TestGpw.java](src/test/java/test/com/muquit/gpw/TestGpw.java) unit test file for complete examples.
 
 ```
-    import com.muquit.gpw;
+    import com.muquit.libgpw;
 
     Gpw gpw = new Gpw();
 
@@ -178,4 +171,4 @@ file in this repository.
 
 
 ---
-<sub>TOC is created by https://github.com/muquit/markdown-toc-go on Nov-13-2025</sub>
+<sub>TOC is created by https://github.com/muquit/markdown-toc-go on May-21-2026</sub>

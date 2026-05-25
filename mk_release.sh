@@ -13,9 +13,9 @@ else
     VERSION="$1"
 fi
 
-RELEASE_NAME="gpw-${VERSION}"
+RELEASE_NAME="libgpw-${VERSION}"
 RELEASE_DIR="bin/${RELEASE_NAME}"
-JAR_FILE="target/gpw-${VERSION}.jar"
+JAR_FILE="target/libgpw-${VERSION}.jar"
 
 # Check if JAR exists
 if [ ! -f "$JAR_FILE" ]; then
@@ -71,7 +71,7 @@ USAGE:
     -l, --length <n>     Length of passwords
 
 ADVANCED:
-  Run directly: java -jar gpw-*.jar [options]
+  Run directly: java -jar libgpw-*.jar [options]
 
 REQUIREMENTS:
   Java 11 or higher
@@ -100,6 +100,6 @@ echo ""
 echo "Release files in bin/:"
 echo "  bin/${RELEASE_NAME}.tar.gz  (for Linux/macOS)"
 echo "  bin/${RELEASE_NAME}.zip     (for Windows)"
-echo "  bin/gpw-${VERSION}.jar      (standalone)"
+echo "  bin/libgpw-${VERSION}.jar      (standalone)"
 echo ""
 echo "Ready to upload to GitHub releases!"

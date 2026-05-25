@@ -4,6 +4,7 @@
 - [How to build](#how-to-build)
 - [How to use](#how-to-use)
   - [Maven projects](#maven-projects)
+  - [Install locally (optional)](#install-locally-optional)
 - [Examples](#examples)
 - [License](#license)
 
@@ -61,8 +62,19 @@ The jar file `libgpw-1.0.3.jar` will be created in `./target` directory
 
 ## Maven projects
 
-The project is not in maven central yet. But it can be installed to your local
-maven repository.  To install it to your local maven repo, do the following:
+The library is available on Maven Central. Add the following dependency to your project's `pom.xml`:
+
+```xml
+<dependency>
+    <groupId>com.muquit.libgpw</groupId>
+    <artifactId>libgpw</artifactId>
+    <version>1.0.3</version>
+</dependency>
+```
+
+## Install locally (optional)
+
+If you want to build from source and install to your local maven repository:
 
 ```bash
 mvn install:install-file \
@@ -73,17 +85,8 @@ mvn install:install-file \
    -Dpackaging=jar \
    -DgeneratePom=true
 ```
-Then addd the following dependency in your project's pom.xml
 
-```
-   <dependency>
-        <groupId>com.muquit.libgpw</groupId>
-        <artifactId>libgpw</artifactId>
-        <version>1.0.3</version>
-   </dependency>
-```
-This technique can be used for any maven projects with source, e.g. if you
-would like to modify the code and try out locally.
+This is useful if you want to modify the code and test it locally.
 
 For non-maven projects, the `libgpw-1.0.3.jar` jar file is available from the 
 [Releases](https://github.com/muquit/gpw/releases) page.
@@ -171,4 +174,4 @@ file in this repository.
 
 
 ---
-<sub>TOC is created by https://github.com/muquit/markdown-toc-go on May-21-2026</sub>
+<sub>TOC is created by https://github.com/muquit/markdown-toc-go on May-24-2026</sub>

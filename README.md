@@ -92,8 +92,8 @@ mvn install:install-file \
 
 This is useful if you want to modify the code and test it locally.
 
-For non-maven projects, the `libgpw-1.0.3.jar` jar file is available from the 
-[Releases](https://github.com/muquit/gpw/releases) page.
+For non-maven projects, the `libgpw-1.0.3.jar` jar file and the jar file with
+tools are available from the [Releases](https://github.com/muquit/libgpw/releases) page.
 
 # Examples
 
@@ -119,7 +119,7 @@ Please look at
     }
 ```
 
-Add at lease one upper case letter. The number depends on the length of the password.
+Add at least one upper case letter. The number depends on the length of the password.
 
 ```
     final String original = "password";
@@ -179,7 +179,7 @@ ucruderp UniformCharlieRomeoUniformDeltaEchoRomeoPapa
 osoleman OscarSierraOscarLimaEchoMikeAlphaNovember
 ```
 
-There are 2 helper scripts `gpw.bash` and `gwt.bat` are supplied for
+There are 2 helper scripts `gpw.bash` and `gpw.bat` are supplied for
 convenience.
 
 *GUI*

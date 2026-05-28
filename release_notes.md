@@ -1,28 +1,12 @@
-## Release v1.0.2
+## Release v1.0.3
 
-### Maven projects
+Please look at [README](https://github.com/muquit/libgpw) on how to use the library and the tools.
 
-The project is not in maven central yet. But it can be installed to your local
-maven repository. 
-To install it to your local maven repo, do the following:
+### Tools
 
-```bash
-mvn install:install-file \
-   -Dfile=./target/gpw-1.0.2.jar \
-   -DgroupId=com.muquit.gpw \
-   -DartifactId=gpw \
-   -Dversion=1.0.2 \
-   -Dpackaging=jar \
-   -DgeneratePom=true
-```
+The JAR includes two tools (requires Java 11+):
 
-Then add the following dependency in your project's pom.xml
+- **CLI** (`gpw-cli`): Run via `java -jar libgpw-1.0.3.jar`. Generates pronounceable passwords with options for count, length, capitalization, digits, symbols, and NATO phonetic alphabet spelling.
+- **GUI** (`gpwgui.GpwGui`): Swing desktop app launched via `java -cp libgpw-1.0.3.jar gpwgui.GpwGui`.
 
-```bash
-   <dependency>
-        <groupId>com.muquit.gpw</groupId>
-        <artifactId>gpw</artifactId>
-        <version>1.0.2</version>
-   </dependency>
-```
-For non-maven projects, download gpw-1.0.2.jar jar from here.
+Both zip and tar.gz archives include the JAR, a README, and wrapper scripts for Unix (`gpw.bash`, `gpw-gui.bash`) and Windows (`gpw.bat`, `gpw-gui.bat`).

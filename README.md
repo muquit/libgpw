@@ -6,6 +6,7 @@
   - [Maven projects](#maven-projects)
   - [Install locally (optional)](#install-locally-optional)
 - [Examples](#examples)
+- [Tools](#tools)
 - [License](#license)
 
 # Introduction
@@ -38,6 +39,7 @@ The following changes and additions are made to the original java code:
 - Converted to a maven project from java applet code
 - Created unit tests
 - Uses `SecureRandom()` instead of `Random()`
+- A CLI and a GUI using the library
 - The following APIs are added
 
 | API | Description |
@@ -49,6 +51,8 @@ The following changes and additions are made to the original java code:
 These APIs provide the core functionality for both the CLI tool and Swing GUI, allowing users to generate secure, pronounceable passwords and passphrases with customizable parameters.
 
 # How to build
+
+Requires jdk 11+
 
 ```
     mvn clean install
@@ -130,12 +134,77 @@ Add at lease one upper case letter. The number depends on the length of the pass
 
 Similarly numbers, symbols can be added to the password.
 
+# Tools
+
+The jar file can be used to run couple of tools. Note java 11+ is required.
+Example:
+
+*CLI*
+
+```bash
+➤ java -jar libgpw-1.0.3.jar  -h
+Usage: gpw-cli [-cdhsVy] [-l=<passwordLength>] [-n=<numberOfPasswords>]
+Generate pronounceable passwords
+  -c, --capitalize   Add uppercase letters
+  -d, --digits       Add numerals
+  -h, --help         Show this help message and exit.
+  -l, --length=<passwordLength>
+                     Password length (default: 8)
+  -n, --number=<numberOfPasswords>
+                     Number of passwords to generate (default: 5)
+  -s, --spell        Spell out password using NATO phonetic alphabet
+  -V, --version      Print version information and exit.
+  -y, --symbols      Add symbols
+```
+
+* Generate 5 password with length 16, all lowercase
+
+```bash
+➤ java -jar libgpw-1.0.3.jar  -n 5 -l 16
+romanylindicaran
+llimportfuserosh
+pononverslosetch
+ldepationferentr
+ortivenavidenise
+```
+
+* Spell out passwords using NATO phonetic alphabet
+
+```bash
+./gpw.bash -n 5 -s
+termosti TangoEchoRomeoMikeOscarSierraTangoIndia
+nesteedi NovemberEchoSierraTangoEchoEchoDeltaIndia
+ableston AlphaBravoLimaEchoSierraTangoOscarNovember
+ucruderp UniformCharlieRomeoUniformDeltaEchoRomeoPapa
+osoleman OscarSierraOscarLimaEchoMikeAlphaNovember
+```
+
+There are 2 helper scripts `gpw.bash` and `gwt.bat` are supplied for
+convenience.
+
+*GUI*
+
+```
+java -cp libgpw-1.0.3.jar gpwgui.GpwGui
+```
+Or use the helper scripts `gpw-gui.bash` and `gpw-gui.bat`
+
+Some screenshots are shown below:
+
+![alt image1](images/gwp-gui1.png)
+
+![alt image2](images/gwp-gui2.png)
+
+![alt image3](images/gwp-gui3.png)
+
+![alt image4](images/gwp-gui4.png)
+
 # License
 
 ```bash
 MIT License
 
-Copyright (c) 2025 Muhammad Muquit
+Copyright (c) 2026 https://muquit.com/
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -174,4 +243,4 @@ file in this repository.
 
 
 ---
-<sub>TOC is created by https://github.com/muquit/markdown-toc-go on May-24-2026</sub>
+<sub>TOC is created by https://github.com/muquit/markdown-toc-go on May-27-2026</sub>

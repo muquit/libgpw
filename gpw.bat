@@ -7,7 +7,7 @@ REM Get the directory where this script is located
 set SCRIPT_DIR=%~dp0
 
 REM Find the gpw jar file
-set JAR_FILE=%SCRIPT_DIR%gpw-1.0.2.jar
+set JAR_FILE=%SCRIPT_DIR%gpw-1.0.3.jar
 
 REM Check if jar exists
 if not exist "%JAR_FILE%" (

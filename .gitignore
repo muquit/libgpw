@@ -21,3 +21,5 @@ test.log
 META-INF/
 /.apt_generated/
 /.apt_generated_tests/
+*.jar
+/notes/

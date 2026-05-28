@@ -89,8 +89,9 @@ tools are available from the @RELEASES@ page.
 Please look at 
 @TEST_GPW@ unit test file for complete examples.
 
-```
-    import com.muquit.libgpw;
+```java
+    import com.muquit.gpw.Gpw;
+    import com.muquit.gpw.GpwPasswordModifier;
 
     Gpw gpw = new Gpw();
 
@@ -99,26 +100,22 @@ Please look at
     List<String> passwords = gpw.generatePasswords(npw, pwlen);
     for (String password: passwords)
     {
-        logger.info(password);
+        System.out.println(password);
         String modified = GpwPasswordModifier.modifyPassword(password, true, true, true);
-        logger.info(" modified all: " + modified);
+        System.out.println(" modified all: " + modified);
 
         modified = GpwPasswordModifier.modifyPassword(password, true, false, false);
-        logger.info(" modified caps: " + modified);
+        System.out.println(" modified caps: " + modified);
     }
 ```
 
 Add at least one upper case letter. The number depends on the length of the password.
 
-```
+```java
     final String original = "password";
 
-    boolean capitalize = true;
-    boolean numerals = false;
-    boolean symbols = false;
-
     String modified = GpwPasswordModifier.modifyPassword(original, true, false, false);
-    logger.info("Original: " + original + " Modified caps: " + modified);
+    System.out.println("Original: " + original + " Modified caps: " + modified);
 ```
 
 Similarly numbers, symbols can be added to the password.

@@ -11,8 +11,8 @@
 
 # Introduction
 
-`libgpw` is java library to generate "pronounceable" passwords. The code is 
-taken from the java implementation mentioned in [Random Password Generator](https://www.multicians.org/thvv/gpw.html) page.
+`libgpw` is java library to generate "pronounceable" passwords using trigram
+frequency analysis of English text.  The code is taken from the java implementation mentioned in [Random Password Generator](https://www.multicians.org/thvv/gpw.html) page.
 The original source for the java applet is [Gpw.java](https://www.multicians.org/thvv/Gpw.java).
 The code is extracted from the source and created this maven project.
 
@@ -240,4 +240,4 @@ file in this repository.
 
 
 ---
-<sub>TOC is created by https://github.com/muquit/markdown-toc-go on May-27-2026</sub>
+<sub>TOC is created by https://github.com/muquit/markdown-toc-go on Jun-02-2026</sub>

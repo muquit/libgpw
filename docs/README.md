@@ -1,7 +1,7 @@
 # Introduction
 
-`libgpw` is java library to generate "pronounceable" passwords. The code is 
-taken from the java implementation mentioned in @GPW_HTML@ page.
+`libgpw` is java library to generate "pronounceable" passwords using trigram
+frequency analysis of English text.  The code is taken from the java implementation mentioned in @GPW_HTML@ page.
 The original source for the java applet is @GPW_CODE@.
 The code is extracted from the source and created this maven project.
 
